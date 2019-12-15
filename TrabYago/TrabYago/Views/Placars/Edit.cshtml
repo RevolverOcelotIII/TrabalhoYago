@@ -1,0 +1,38 @@
+﻿@model TrabYago.Models.Placar
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar placar</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TotalPontos" class="control-label"></label>
+                <input asp-for="TotalPontos" class="form-control" />
+                <span asp-validation-for="TotalPontos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataPontuacao" class="control-label"></label>
+                <input asp-for="DataPontuacao" class="form-control" />
+                <span asp-validation-for="DataPontuacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar dados" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

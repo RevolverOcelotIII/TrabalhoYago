@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TrabYago.Models.Placar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Placares</h1>
+
+<p>
+    <a asp-action="Create">Adicionar</a>
+</p>
+<p>
+    <a asp-action="Top10">Top 10 placares</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPontos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPontuacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JogadorNome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPontos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPontuacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JogadorNome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Remover</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

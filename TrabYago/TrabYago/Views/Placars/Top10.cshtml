@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TrabYago.Models.Placar>
+
+@{
+    ViewData["Title"] = "Top 10 Placares";
+    int i = 1;
+}
+
+<h1>Top 10 Placares</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.JogadorNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPontos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPontuacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model) {
+        <tr>
+            <th>@i
+                 - 
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.JogadorNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPontos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPontuacao)
+            </td>
+        </tr>
+        i++;
+}
+    </tbody>
+</table>
